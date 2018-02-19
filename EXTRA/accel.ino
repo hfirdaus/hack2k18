@@ -56,15 +56,15 @@ void loop(){
   Serial.print("YES");
     delay(10);
 }
-
-void setReg(int reg, int data){
+*/
+//void setReg(int reg, int data){
 //    Wire.beginTransmission(I2C_Address);
 //    Wire.write(reg);
 //    Wire.write(data);
 //    Wire.endTransmission();
-}
+//}
 
-int getData(int reg){
+//int getData(int reg){
 //    Wire.beginTransmission(I2C_Address);
 //    Wire.write(reg);
 //    Wire.endTransmission();
@@ -74,5 +74,4 @@ int getData(int reg){
 //    if(Wire.available()<=1){
 //        return Wire.read();
 //    }
-}
-*/
+//}

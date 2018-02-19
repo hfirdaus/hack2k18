@@ -1,4 +1,4 @@
-#include "Particle.h"
+/*#include "Particle.h"
 
 #include "cellular_hal.h"
 #include "ADXL362DMA.h"
@@ -25,7 +25,7 @@ SYSTEM_THREAD(ENABLED);
 // INT2: no connection
 ADXL362DMA accel(SPI, A2);
 
-FuelGauge batteryMonitor;
+//FuelGauge batteryMonitor;
 
 // This is the pin connected to the INT1 pin on the ADXL362 breakout
 // Don't use D0 or D1; they are used for I2C to the PowerShield battery monitor
@@ -49,11 +49,16 @@ int awake = 0;
 
 void setup() {
 	Particle.keepAlive(30);
-	Serial.begin(9600);
+//	Serial.begin(9600);
 }
 
 void loop() {
-	uint8_t status;
+
+	awake = ((accel.readStatus() & accel.STATUS_AWAKE) != 0);
+//	Serial.println(awake);
+	delay(10);
+
+/*	uint8_t status;
 
 	switch(state) {
 	case RESET_STATE:
@@ -109,6 +114,7 @@ void loop() {
 			snprintf(data, sizeof(data), "%d,%.02f,%.02f", awake, cellVoltage, stateOfCharge);
 
 			Particle.publish(eventName, data, 60, PRIVATE);
+			Serial.println(data);
 
 			// Wait for the publish to go out
 			stateTime = millis();
@@ -139,7 +145,7 @@ void loop() {
 
 	case SLEEP_STATE:
 		// Sleep
-		System.sleep(ACCEL_INT_PIN, RISING, TIME_PUBLISH_BATTERY_SEC);
+//		System.sleep(ACCEL_INT_PIN, RISING, TIME_PUBLISH_BATTERY_SEC);
 
 		awake = ((accel.readStatus() & accel.STATUS_AWAKE) != 0);
 
@@ -149,3 +155,4 @@ void loop() {
 	}
 
 }
+*/

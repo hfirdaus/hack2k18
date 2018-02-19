@@ -511,4 +511,3 @@ public:
 };
 
 #endif /* __ADXL362_H */
-
